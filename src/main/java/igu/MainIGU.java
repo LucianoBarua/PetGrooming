@@ -19,9 +19,9 @@ public class MainIGU extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 48)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Pet Grooming ");
+        jLabel1.setText("PET GROMMING");
 
         btnDetalles.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnDetalles.setText("Clients");
@@ -110,6 +110,7 @@ public class MainIGU extends javax.swing.JFrame {
     private void btnCargarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarDatosActionPerformed
         DataIGU pantalla = new DataIGU();
         pantalla.setVisible(true);
+        pantalla.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnCargarDatosActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed

@@ -93,10 +93,10 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="48" style="0"/>
+              <Font name="Arial Rounded MT Bold" size="48" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Pet Grooming "/>
+            <Property name="text" type="java.lang.String" value="PET GROMMING"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnDetalles">
