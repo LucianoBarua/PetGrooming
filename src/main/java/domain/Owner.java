@@ -5,26 +5,27 @@ import javax.persistence.*;
 
 @Entity
 public class Owner implements Serializable {
-@Id
-@GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private String idOwner;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private int idOwner;
     private String name;
     private String phoneNumber;
 
     public Owner() {
     }
 
-    public Owner(String idOwner, String name, String phoneNumber) {
+    public Owner(int idOwner, String name, String phoneNumber) {
         this.idOwner = idOwner;
         this.name = name;
         this.phoneNumber = phoneNumber;
     }
 
-    public String getIdOwner() {
+    public int getIdOwner() {
         return idOwner;
     }
 
-    public void setIdOwner(String idOwner) {
+    public void setIdOwner(int idOwner) {
         this.idOwner = idOwner;
     }
 
@@ -44,5 +45,4 @@ public class Owner implements Serializable {
         this.phoneNumber = phoneNumber;
     }
 
-   
 }

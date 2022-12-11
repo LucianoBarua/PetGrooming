@@ -8,6 +8,7 @@ public class Pet implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private int num_client;
     private String name;
     private String breed;
     private String color;
@@ -19,13 +20,22 @@ public class Pet implements Serializable {
     public Pet() {
     }
 
-    public Pet(String name, String breed, String color, String allergic, String specialAttention, Owner owner) {
+    public Pet(int num_client, String name, String breed, String color, String allergic, String specialAttention, Owner owner) {
+        this.num_client = num_client;
         this.name = name;
         this.breed = breed;
         this.color = color;
         this.allergic = allergic;
         this.specialAttention = specialAttention;
         this.owner = owner;
+    }
+
+    public int getNum_client() {
+        return num_client;
+    }
+
+    public void setNum_client(int num_client) {
+        this.num_client = num_client;
     }
 
     public String getName() {
@@ -75,5 +85,7 @@ public class Pet implements Serializable {
     public void setOwner(Owner owner) {
         this.owner = owner;
     }
+
+    
 
 }

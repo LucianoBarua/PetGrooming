@@ -1,6 +1,8 @@
 package igu;
 
 import domain.Control;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -291,12 +293,18 @@ public class DataIGU extends javax.swing.JFrame {
         String color = txtColor.getText();
         String breed = txtBreed.getText();
         String comments = texAreaComments.getText();
-        String comboAllergic = (String)ComboAllergic.getSelectedItem();
+        String comboAllergic = (String) ComboAllergic.getSelectedItem();
         String comboSpecial = (String) ComboSpecial.getSelectedItem();
         String ownersName = txtOwnerName.getText();
-        String phoneOwner = txtPhone.getText();        
+        String phoneOwner = txtPhone.getText();
+
+        controladora.save(breed, color, comboAllergic, comboSpecial, comments, ownersName, petsName, phoneOwner);
         
-        controladora.save(breed,color,comboAllergic,comboSpecial,comments,ownersName,petsName,phoneOwner);
+        JOptionPane optionPane = new JOptionPane("SUCCESFULLY SAVED");
+        optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+        JDialog dialog = optionPane.createDialog("SUCCESFULLY SAVED");
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed

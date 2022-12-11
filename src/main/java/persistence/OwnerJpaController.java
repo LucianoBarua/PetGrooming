@@ -55,7 +55,7 @@ public class OwnerJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                String id = owner.getIdOwner();
+                int id = owner.getIdOwner();
                 if (findOwner(id) == null) {
                     throw new NonexistentEntityException("The owner with id " + id + " no longer exists.");
                 }
@@ -113,7 +113,7 @@ public class OwnerJpaController implements Serializable {
         }
     }
 
-    public Owner findOwner(String id) {
+    public Owner findOwner(int id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(Owner.class, id);
