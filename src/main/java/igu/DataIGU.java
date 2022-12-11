@@ -1,14 +1,15 @@
 package igu;
 
+import domain.Control;
+
 /**
  *
  * @author lucia
  */
 public class DataIGU extends javax.swing.JFrame {
 
-    /**
-     * Creates new form CargarDatos
-     */
+    Control controladora = new Control();
+
     public DataIGU() {
         initComponents();
     }
@@ -72,6 +73,11 @@ public class DataIGU extends javax.swing.JFrame {
         });
 
         jButton7.setText("Phone number");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,6 +125,11 @@ public class DataIGU extends javax.swing.JFrame {
 
         btnSave.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnSave.setText("SAVE");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
         btnDelete.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnDelete.setText("DELETE");
@@ -274,6 +285,23 @@ public class DataIGU extends javax.swing.JFrame {
         ComboAllergic.setSelectedIndex(0);
         ComboSpecial.setSelectedIndex(0);
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        String petsName = txtName.getText();
+        String color = txtColor.getText();
+        String breed = txtBreed.getText();
+        String comments = texAreaComments.getText();
+        String comboAllergic = (String)ComboAllergic.getSelectedItem();
+        String comboSpecial = (String) ComboSpecial.getSelectedItem();
+        String ownersName = txtOwnerName.getText();
+        String phoneOwner = txtPhone.getText();        
+        
+        controladora.save(breed,color,comboAllergic,comboSpecial,comments,ownersName,petsName,phoneOwner);
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
