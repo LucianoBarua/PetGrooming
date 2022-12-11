@@ -1,9 +1,10 @@
 package domain;
 
+import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity
-public class Owner {
+public class Owner implements Serializable {
 @Id
 @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private String idOwner;
