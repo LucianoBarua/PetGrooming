@@ -1,7 +1,11 @@
 package domain;
 
-public class Owner {
+import javax.persistence.*;
 
+@Entity
+public class Owner {
+@Id
+@GeneratedValue(strategy = GenerationType.SEQUENCE)
     private String idOwner;
     private String name;
     private String phoneNumber;

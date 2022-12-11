@@ -1,17 +1,23 @@
 package domain;
 
+import javax.persistence.*;
+
+@Entity
 public class Pet {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private String name;
     private String breed;
     private String color;
     private String allergic;
     private String specialAttention;
+    @OneToOne
     private Owner owner;
 
     public Pet() {
     }
-    
+
     public Pet(String name, String breed, String color, String allergic, String specialAttention, Owner owner) {
         this.name = name;
         this.breed = breed;
@@ -68,6 +74,5 @@ public class Pet {
     public void setOwner(Owner owner) {
         this.owner = owner;
     }
-    
-    
+
 }
