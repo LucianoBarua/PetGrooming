@@ -1,8 +1,13 @@
 package domain;
 
+import java.util.List;
 import persistence.PersistenceController;
 
 public class Control {
+
+    public static List<Pet> loadData() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
     PersistenceController persistenceController = new PersistenceController();
 

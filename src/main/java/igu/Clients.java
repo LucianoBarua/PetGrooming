@@ -1,7 +1,15 @@
 package igu;
 
+import domain.Control;
+import domain.Pet;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 public class Clients extends javax.swing.JFrame {
+    Control control;    
+    
     public Clients() {
+        control = new Control();
         initComponents();
     }
 
@@ -19,6 +27,11 @@ public class Clients extends javax.swing.JFrame {
         btnSaveClients = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 48)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -127,6 +140,10 @@ public class Clients extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        loadTable();
+    }//GEN-LAST:event_formWindowOpened
+
     /**
      * @param args the command line arguments
      */
@@ -140,4 +157,25 @@ public class Clients extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+    private void loadTable() {
+        DefaultTableModel table = new DefaultTableModel() {
+         public boolean isCellEditable(int row, int column) {
+             return false;
+         }  
+        };
+        
+        //Establecemos los datos de las columnas.
+        String titulos[] = {"Num", "Name", "Color", "Breed", "Alergic", "Spe. Atte", "Owner", "Phone"};
+        table.setColumnIdentifiers(titulos);
+        
+        //Carga datos desde la base de datos. 
+        List <Pet> pets = control.loadData();
+        if(pets != null){
+            for(Pet pet: pets){
+                Object[] object = {pet.getNum_client(),pet.getName(),pet.getColor(), pet.getBreed(), pet.getAllergic(), pet.getSpecialAttention(), pet.getOwner(), pet.getOwner().getPhoneNumber()};
+            }
+        }
+        
+    }
 }
