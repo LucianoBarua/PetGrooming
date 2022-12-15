@@ -170,10 +170,11 @@ public class Clients extends javax.swing.JFrame {
         table.setColumnIdentifiers(titulos);
         
         //Carga datos desde la base de datos. 
-        List <Pet> pets = control.loadData();
+        List <Pet> pets = control.loadPets();
         if(pets != null){
             for(Pet pet: pets){
-                Object[] object = {pet.getNum_client(),pet.getName(),pet.getColor(), pet.getBreed(), pet.getAllergic(), pet.getSpecialAttention(), pet.getOwner(), pet.getOwner().getPhoneNumber()};
+                Object[] object = {pet.getNum_client(),pet.getName(),pet.getColor(), pet.getBreed(), pet.getAllergic(), pet.getSpecialAttention(), pet.getOwner().getName(), pet.getOwner().getPhoneNumber()};
+                table.addRow(object); 
             }
         }
         
